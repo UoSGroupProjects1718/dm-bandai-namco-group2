@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonInputController : MonoBehaviour {
 
     [Header("Button Components")]
-    public int buttonNumber;
+    public int buttonNumberPlayerOne;
     private GameManager GM;
     private AudioSource buttonSound;
 
@@ -21,7 +21,7 @@ public class ButtonInputController : MonoBehaviour {
 
     public void OnMouseUp()
     {
-        GM.ButtonChecker(buttonNumber);
+        GM.ButtonCheckerForPlayerOne(buttonNumberPlayerOne);
         buttonSound.Play();
     }
 }
