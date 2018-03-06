@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DEBUG_Menu.unity
+    guid: 9c88c4dca532aee468205d2ee05062f7
+  - enabled: 1
+    path: Assets/Scenes/DEBUG-Scene.unity
+    guid: d278c23876a038a4d9bc837b589e29ba
+  - enabled: 1
+    path: Assets/Scenes/DEBUG-HowToPlay.unity
+    guid: 88b3b1ac78bc8e64e9f562e0f116dfab

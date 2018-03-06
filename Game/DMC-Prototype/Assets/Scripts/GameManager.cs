@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    [Header("Player Win/Lose Components")]
+    public SpriteRenderer playerOneWins;
+    public SpriteRenderer playerTwoWins;
+    public SpriteRenderer playerOneLoses;
+    public SpriteRenderer playerTwoLoses;
+    public SpriteRenderer playersdraw; 
+
     bool player1Correct;
     bool player2Correct;
     bool player1TurnOver;
@@ -23,6 +30,7 @@ public class GameManager : MonoBehaviour {
     private float waitBetweenCounter;
     public List<int> numberSequence;
     private int numberPositionInSequence;
+    public bool playSequence; 
 
     [Header("Audio Manager")]
     public AudioSource[] numberSounds; 
@@ -32,16 +40,17 @@ public class GameManager : MonoBehaviour {
 
     [Header("Button Settings")]
     public GameObject current_Button;
+    public GameObject Reset_Button; 
   
 
     void Start () {
-		
+        playSequence = true;
 	}
 	
 	
 	void Update ()
     {
-        if (isLit)
+        if (isLit & playSequence)
         {
             /**************
                its lit fam
@@ -205,8 +214,8 @@ public class GameManager : MonoBehaviour {
                 player2TurnOver = true;
                 player2Correct = true;
 
-                numberPositionInSequence = 0;
-                playerInputInSequence = 0;
+                numberPositionInSequence = 1;
+                playerInputInSequence = 1;
 
 
                 numberSequence.Add(numberSelect);
@@ -243,21 +252,37 @@ public class GameManager : MonoBehaviour {
         if (player1Correct && player2Correct)
         {
             // Draw - both correct
+            playerOneWins.color = new Color(playerOneWins.color.r, playerOneWins.color.g, playerOneLoses.color.b, 1f);
+            playerTwoLoses.color = new Color(playerTwoLoses.color.r, playerTwoLoses.color.g, playerTwoLoses.color.b, 1f);
+            playSequence = false;
+            Reset_Button.SetActive(true);
         }
 
         else if (player1Correct && !player2Correct)
         {
             // Player 1 wins
+            playerOneWins.color = new Color(playerOneWins.color.r, playerOneWins.color.g, playerOneLoses.color.b, 1f);
+            playerTwoLoses.color = new Color(playerTwoLoses.color.r, playerTwoLoses.color.g, playerTwoLoses.color.b, 1f);
+            playSequence = false;
+            Reset_Button.SetActive(true);
         }
 
         else if (!player1Correct && player2Correct)
         {
             // Player 2 wins
+            playerTwoWins.color = new Color(playerTwoWins.color.r, playerTwoWins.color.g, playerTwoWins.color.b, 1f);
+            playerOneLoses.color = new Color(playerOneLoses.color.r, playerOneLoses.color.g, playerOneLoses.color.b, 1f);
+            playSequence = false;
+            Reset_Button.SetActive(true);
         }
 
         else if (!player1Correct && !player2Correct)
         {
             // Draw - both wrong
+            playerOneLoses.color = new Color(playerOneLoses.color.r, playerOneLoses.color.g, playerOneLoses.color.b, 1f);
+            playerTwoLoses.color = new Color(playerTwoLoses.color.r, playerTwoLoses.color.g, playerTwoLoses.color.b, 1f);
+            playSequence = false;
+            Reset_Button.SetActive(true);
         }
 
 
