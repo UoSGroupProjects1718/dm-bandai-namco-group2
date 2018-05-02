@@ -52,14 +52,7 @@ public class GameManager : MonoBehaviour {
     {
         if (isLit & playSequence)
         {
-            /**************
-               its lit fam
-                   )
-                  ) \
-                 / ) (
-                 \(_)/  
-             **************/
-
+           
             stayLitCounter -= Time.deltaTime;
 
             if (stayLitCounter < 0)
@@ -128,9 +121,7 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// Reset the round back to default
-    /// </summary>
+    
     public void ResetMatch()
     {
         // No player has pressed yet
@@ -142,10 +133,7 @@ public class GameManager : MonoBehaviour {
         player2Correct = false;
     }
 
-    /// <summary>
-    /// Player 1 Input method
-    /// </summary>
-    /// <param name="whichButtonForPlayerOne">The button they pressed</param>
+  
     public void ButtonCheckerForPlayerOne(int whichButtonForPlayerOne)
     {
         // If player1 has already gone, return
@@ -192,10 +180,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Player 2 input method
-    /// </summary>
-    /// <param name="whichButtonForPlayerTwo">Which button they pressed</param>
     public void ButtonCheckerForPlayerTwo(int whichButtonForPlayerTwo)
     {
         // If player2 has already gone, return
@@ -243,10 +227,6 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    /// <summary>
-    /// Called once both players have had their turn, finds the winner and 
-    /// then resets the match variables.
-    /// </summary>
     private void FindWinner()
     {
         if (player1Correct && player2Correct)
